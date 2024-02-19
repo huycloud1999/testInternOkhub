@@ -1,0 +1,138 @@
+.container {
+  min-height: 100vh;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  .filter {
+    position: absolute;
+    background-image: url("../../assets/imgs/bgBanner.jpg");
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.08;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    z-index: -11;
+  }
+  .bannerTop {
+    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100%;
+    @media (max-width: 768px) {
+      .group {
+        display: none;
+      }
+      .info {
+        display: block;
+      }
+      .sound {
+        display: block;
+      }
+    }
+  }
+  .title {
+    @media (max-width: 768px) {
+      h3 {
+        font-size: 12px;
+        color: white;
+      }
+      h1 {
+        font-size: 24px;
+        color: white;
+      }
+      span {
+        font-size: 24px;
+        color: white;
+      }
+    }
+  }
+  video {
+    border-radius: 12px;
+    opacity: 1;
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      border-radius: 0;
+    }
+  }
+  .bannerBot {
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+    .buttons {
+      @media (max-width: 768px) {
+        width: 100%;
+        justify-content: space-around;
+      }
+      .butn {
+        width: fit-content;
+        transition: 1s ease-in-out;
+        cursor: pointer;
+        &:hover .bg {
+          opacity: 1;
+        }
+      }
+      .butnSecond {
+        width: fit-content;
+        cursor: pointer;
+        &:hover {
+          background-color: #b34b1e;
+          color: white;
+        }
+        &:hover span {
+          color: white;
+        }
+        &:hover .bg {
+          opacity: 1;
+        }
+      }
+    }
+    .botLeft {
+      .hiddenMap {
+        @media (max-width: 768px) {
+          display: block;
+        }
+      }
+      .leftTitle {
+        @media (max-width: 768px) {
+          h3 {
+            font-size: 12px;
+          }
+          h1 {
+            font-size: 24px;
+          }
+        }
+      }
+      .main {
+        @media (max-width: 768px) {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scroll-behavior: smooth;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          img {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .botRight {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}

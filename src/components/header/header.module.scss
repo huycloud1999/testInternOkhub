@@ -1,0 +1,144 @@
+.container {
+  background-image: url("../../assets/imgs/bgHeader.png");
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 2rem;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+  .title {
+    @media (max-width: 768px) {
+      padding: 0 3rem 0;
+    }
+  }
+  .funtion {
+    @media (max-width: 768px) {
+      max-width: 90%;
+    }
+  }
+  .nav {
+    @media (max-width: 768px) {
+      background-color: transparent;
+      .logo {
+        img {
+          width: 80px;
+          height: 70px;
+          margin-top: 1rem;
+        }
+      }
+      .link {
+        display: none;
+      }
+      .socials {
+        display: none;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    align-items: flex-start;
+    li {
+      display: inline-flex;
+      .item {
+        position: relative;
+        transition: transform 0.3s ease;
+        span {
+          position: absolute;
+          bottom: -15px;
+          left: calc(50%);
+          transform: translate(-50%, -50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: transparent;
+          transition: background-color 0.3s;
+          opacity: 0;
+        }
+        &:hover {
+          transform: translateY(-5px);
+          color: #fc692a;
+          text-shadow: 3px 4px 3px rgba(113, 110, 110, 0.8);
+        }
+        &:hover span {
+          background-color: #fc692a;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .funtion {
+    @media (max-width: 768px) {
+      display: grid;
+      grid-template-areas:
+        "a a a"
+        "b b b"
+        "c e d"
+        "f f f";
+      width: 100%;
+      row-gap: 1rem;
+      column-gap: 0px;
+      .funItemFirst {
+        width: 100%;
+        grid-area: a;
+      }
+      .colFirst {
+        grid-area: b;
+        border: 1px solid #ccc;
+      }
+      .funItemSecond {
+        grid-area: c;
+        width: 100%;
+        margin: 0px;
+      }
+      .funItemThird {
+        grid-area: d;
+        width: 100%;
+        margin: 0;
+      }
+      .colSecond {
+        grid-area: e;
+        width: 1px;
+        height: 100%;
+      }
+      .button {
+        grid-area: f;
+        width: 100%;
+        border-radius: 8px;
+        padding: 12px;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+  .menuExtra {
+    @media (max-width: 768px) {
+      display: flex;
+      width: 100%;
+      background: white;
+      color: #284a0c;
+      justify-content: space-between;
+      padding: 12px 20px 12px;
+      font-size: 12px;
+    }
+    .itemExtra {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 0.5rem;
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+  .menuResponsive {
+    background-image: url("../../assets/imgs/bgMenu.jpg");
+    background-size: cover;
+  }
+}

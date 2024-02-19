@@ -12,6 +12,13 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        tomatoes: ["var(--font-tomatoes)"],
+        heavitas: ["var(--font-heavitas)"],
+      },
+      textColor: {
+        orange: "#FC692A",
+      },
     },
   },
   plugins: [],
