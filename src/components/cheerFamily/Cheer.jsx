@@ -198,7 +198,7 @@ const Cheer = () => {
           </div>
         )}
         {activeMenu === "Special list" && (
-          <div className="">
+          <div className="pt-5">
             <Swiper
               navigation={true}
               modules={[Navigation]}
@@ -234,7 +234,7 @@ const Cheer = () => {
           </div>
         )}
         {activeMenu === "localhost" && (
-          <div className="">
+          <div className="pt-5">
             <Swiper
               navigation={true}
               modules={[Navigation]}
@@ -270,7 +270,7 @@ const Cheer = () => {
           </div>
         )}
         {activeMenu === "tour leader" && (
-          <div className="">
+          <div className="pt-5">
             <Swiper
               navigation={true}
               modules={[Navigation]}
