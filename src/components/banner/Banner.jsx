@@ -5,7 +5,7 @@ import img1 from "@/assets/imgs/bannerBg1.jpg";
 import img2 from "@/assets/imgs/bannerBg2.jpg";
 import img3 from "@/assets/imgs/bannerBg3.jpg";
 import img4 from "@/assets/imgs/bannerBg4.jpg";
-import { Bounce } from "react-awesome-reveal";
+import { Bounce, Zoom, Slide } from "react-awesome-reveal";
 import icon1 from "@/assets/icons/map.svg";
 import icon2 from "@/assets/icons/Group.svg";
 import icon3 from "@/assets/icons/Group 2.svg";
@@ -70,28 +70,28 @@ const Banner = () => {
         <Image
           src={img1}
           alt="test"
-          className={`${styles.group} absolute opacity-[40%] w-auto h-[20%] -left-40 top-28 overflow-hidden rounded-xl`}
+          className={`${styles.group} absolute opacity-[40%] w-auto h-[20%] -left-40 top-28 overflow-hidden rounded-xl -z-10`}
         />
         <Image
           src={img2}
           alt="test"
-          className={`${styles.group} absolute opacity-[40%] w-auto h-[30%] -left-72 top-2/4 overflow-hidden rounded-xl`}
+          className={`${styles.group} absolute opacity-[40%] w-auto h-[30%] -left-72 top-2/4 overflow-hidden rounded-xl -z-10`}
         />
         <Image
           src={img3}
           alt="test"
-          className={`${styles.group} absolute opacity-[40%] w-auto h-[30%] -right-36 top-28 overflow-y-hidden rounded-xl`}
+          className={`${styles.group} absolute opacity-[40%] w-auto h-[30%] -right-36 top-28 overflow-y-hidden rounded-xl -z-10 `}
         />
         <Image
           src={img4}
           alt="test"
-          className={`${styles.group} absolute opacity-[40%] w-auto h-[20%] -right-40 top-2/4 overflow-y-hidden rounded-xl`}
+          className={`${styles.group} absolute opacity-[40%] w-auto h-[20%] -right-40 top-2/4 overflow-y-hidden rounded-xl -z-10`}
         />
         <Bounce>
           <div
             className={`${styles.title} flex flex-col items-center pt-[112px] gap-y-8 `}
           >
-            <div className=" flex flex-col items-center">
+            <div className=" flex flex-col items-center  text-white">
               <h3
                 className={`${styles.titleW} font-heavitas text-[12px] text-[#B34B1E] `}
               >
@@ -110,7 +110,9 @@ const Banner = () => {
             </span>
           </div>
         </Bounce>
-        <div className={`${styles.info} z-50 absolute bottom-2 left-5 hidden`}>
+        <div
+          className={`${styles.info} z-50 absolute bottom-2 left-5  xl:flex  xl:w-full xl:justify-center xl:gap-x-6 xl:mb-7`}
+        >
           {itemList.map((item, index) => (
             <div
               key={index}
@@ -130,7 +132,7 @@ const Banner = () => {
           ))}
         </div>
         <div
-          className={`${styles.sound} z-50 absolute bottom-7 right-7 border-solid border-2	p-2 border-white rounded-full hidden`}
+          className={`${styles.sound} z-50 absolute bottom-7 right-5 xl:right-28 border-solid border-2	p-2 border-white rounded-full `}
         >
           {sound ? (
             <RxSpeakerLoud
@@ -144,18 +146,22 @@ const Banner = () => {
             />
           )}
         </div>
-        <video
-          width="848"
-          height="477"
-          preload="none"
-          autoPlay="true"
-          loop
-          playsInline
-          muted
-          className="mx-auto"
+        <Zoom
+          triggerOnce="true"
+          duration={1500}
+          className="absolute top-0 -z-[1] w-full "
         >
-          <source src="/video.mp4" />
-        </video>
+          <video
+            preload="none"
+            autoPlay="true"
+            loop
+            playsInline
+            muted
+            className="mx-auto"
+          >
+            <source src="/video.mp4" />
+          </video>
+        </Zoom>
       </div>
       <div
         className={`${styles.bannerBot} grid grid-cols-2 min-h-[100vh] px-36 items-center`}
@@ -167,9 +173,11 @@ const Banner = () => {
             <h3 className="text-[16px] text-[#B34B1E] uppercase font-bold">
               Start with
             </h3>
-            <h1 className="text-[48px] text-[#B34B1E] uppercase font-bold">
-              HA GIAng <br /> cheers tour
-            </h1>
+            <Slide direction="up">
+              <h1 className="text-[48px] text-[#B34B1E] uppercase font-bold">
+                HA GIAng <br /> cheers tour
+              </h1>
+            </Slide>
           </div>
           <Image
             src={map}
@@ -189,22 +197,25 @@ const Banner = () => {
           <div
             className={`${styles.text} text-[14px] flex flex-col gap-y-5 pt-5 text-[#727272]`}
           >
-            <span>
-              The 3 Days Epic Ha giang Loop Tour with easy rider organized by
-              <b className="text-[#2E2E2E]">Vietnam Cheers Hostel</b> is a must
-              in Vietnam for any traveller. It is considered a highlight of
-              South East Asia.
-            </span>
-            <p>
-              Explore <b className="text-[#2E2E2E]">Ma Pi Leng</b>, one of The
-              Big Four Passes in Vietnam, through thousands of conical limestone
-              peaks as well as deep and meandering valleys. Party dinner,
-              waterfall and local le at authentic{" "}
-              <b className="text-[#2E2E2E]">Cheers Du Gia Homestay</b>. will be
-              the unique experience also. This is designed for adventure-seekers
-              — those who want to experience the biggest challenge Vietnam has
-              to offer in a safe environment with our experienced easy riders.
-            </p>
+            <Slide direction="up">
+              <span>
+                The 3 Days Epic Ha giang Loop Tour with easy rider organized by
+                <b className="text-[#2E2E2E]">Vietnam Cheers Hostel</b> is a
+                must in Vietnam for any traveller. It is considered a highlight
+                of South East Asia.
+              </span>
+              <p>
+                Explore <b className="text-[#2E2E2E]">Ma Pi Leng</b>, one of The
+                Big Four Passes in Vietnam, through thousands of conical
+                limestone peaks as well as deep and meandering valleys. Party
+                dinner, waterfall and local le at authentic{" "}
+                <b className="text-[#2E2E2E]">Cheers Du Gia Homestay</b>. will
+                be the unique experience also. This is designed for
+                adventure-seekers — those who want to experience the biggest
+                challenge Vietnam has to offer in a safe environment with our
+                experienced easy riders.
+              </p>
+            </Slide>
           </div>
           <div className={`${styles.buttons} flex gap-x-3`}>
             <div
@@ -234,7 +245,9 @@ const Banner = () => {
           </div>
         </div>
         <div className={styles.botRight}>
-          <Image src={map} alt="map" className="mx-auto" />
+          <Slide direction="right">
+            <Image src={map} alt="map" className="mx-auto" />
+          </Slide>
         </div>
       </div>
     </div>

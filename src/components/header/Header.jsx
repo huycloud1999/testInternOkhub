@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./header.module.scss";
 import logo from "@/assets/imgs/logo.png";
 import text from "@/assets/imgs/text.png";
@@ -17,11 +17,38 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
 import { IoCloseCircleSharp } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [self, setSelf] = useState(1);
+  const [privateD, setPrivateD] = useState(1);
+  const [price, setPrice] = useState(self * 100 + privateD * 150);
+  useEffect(() => {
+    setPrice(self * 100 + privateD * 150);
+  }, [self, privateD]);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  const handleAddSelf = () => {
+    setSelf(self + 1);
+  };
+  const handleMinusSelf = () => {
+    if (self == 0) {
+      setSelf(0);
+    } else {
+      setSelf(self - 1);
+    }
+  };
+  const handleAddPrivate = () => {
+    setPrivateD(privateD + 1);
+  };
+  const handleMinusP = () => {
+    if (privateD == 0) {
+      setPrivateD(0);
+    } else {
+      setPrivateD(privateD - 1);
+    }
   };
   return (
     <div className={styles.container}>
@@ -126,12 +153,22 @@ const Header = () => {
             <label>
               <Image src={human} alt="backTop" width={20} height={20} />
             </label>
-            <select id="tour" className="font-bold w-full focus:outline-none">
-              <option value="volvo">2 pax</option>
-              <option value="audi" selected>
-                3 pax
-              </option>
-            </select>
+            <div className="flex items-center gap-x-3 ">
+              <div className="lowercase font-bold text-[14px] xl:text-xl">
+                {self}
+                <span> pax</span>
+              </div>
+              <div className="flex items-center gap-x-1 xl:gap-x-2">
+                <FaPlus
+                  className="border-[1px] p-[6px] text-3xl rounded-full cursor-pointer shadow-lg hover:bg-[#B34B1E] hover:text-white"
+                  onClick={handleAddSelf}
+                />
+                <FaMinus
+                  className="border-[1px] p-[6px] text-3xl rounded-full cursor-pointer shadow-lg"
+                  onClick={handleMinusSelf}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -145,19 +182,33 @@ const Header = () => {
             <label>
               <Image src={human} alt="backTop" width={25} height={25} />
             </label>
-            <select id="tour" className="font-bold w-full focus:outline-none">
-              <option value="volvo">10 pax</option>
-              <option value="audi" selected>
-                5 pax
-              </option>
-            </select>
+            <div className="flex items-center gap-x-3 ">
+              <div className="lowercase font-bold text-[14px] xl:text-xl">
+                {privateD}
+                <span> pax</span>
+              </div>
+              <div className="flex items-center gap-x-1 xl:gap-x-2">
+                <FaPlus
+                  className="border-[1px] p-[6px] text-3xl rounded-full cursor-pointer shadow-lg hover:bg-[#B34B1E] hover:text-white"
+                  onClick={handleAddPrivate}
+                />
+                <FaMinus
+                  className="border-[1px] p-[6px] text-3xl rounded-full cursor-pointer shadow-lg"
+                  onClick={handleMinusP}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           className={`${styles.button} bg-[#B34B1E] flex items-center flex-col px-[24px] py-[12px] rounded-[4px] cursor-pointer hover:bg-red-500 `}
         >
-          <div className="price text-[26px] font-bold text-white">$299</div>
-          <span className="text-[14px] font-bold text-white">BOOK NOW</span>
+          <div className="price text-[26px] font-bold text-white select-none">
+            ${price}
+          </div>
+          <span className="text-[14px] font-bold text-white select-none">
+            BOOK NOW
+          </span>
         </div>
       </div>
       <div className={`${styles.menuExtra} hidden mb-0 `}>
