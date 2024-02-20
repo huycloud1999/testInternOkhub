@@ -25,9 +25,9 @@ export default function Home() {
           alt="backTop"
           width={30}
           height={50}
-          className=" border-[#FC692A] border-[1px] border-solid rounded-t-full rounded-b-full pt-3 pb-3 px-2 cursor-pointer "
+          className=" border-[#FC692A] border-[1px] md:bg-transparent   border-solid rounded-t-full rounded-b-full pt-3 pb-3 px-2 cursor-pointer z-[1000]"
         />
-        <div className="border-solid border-white bg-[#FC692A] rounded-full w-[50px] h-[50px] font-[900] text-[12px] text-white flex flex-col justify-center items-center cursor-pointer animate-pulse">
+        <div className="border-solid hidden  border-white bg-[#FC692A] rounded-full w-[50px] h-[50px] font-[900] text-[12px] text-white  md:flex flex-col justify-center items-center cursor-pointer animate-pulse z-[1000]">
           <p>Book</p>
           <p>Now</p>
         </div>
@@ -37,7 +37,7 @@ export default function Home() {
           alt="supportCall"
           width={40}
           height={40}
-          className="cursor-pointer animate-bounce relative "
+          className="cursor-pointer animate-bounce relative md:block hidden "
         />
       </div>
     </div>

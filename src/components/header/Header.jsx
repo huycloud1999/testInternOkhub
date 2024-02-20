@@ -236,7 +236,7 @@ const Header = () => {
       <div
         className={`${styles.menuResponsive} ${
           isMenuOpen ? "" : "hidden"
-        } bg-white absolute w-full h-full z-50`}
+        } bg-white fixed w-full h-[100vh] z-[9999]`}
       >
         <div>
           <div className="uppercase flex  flex-col  items-center gap-y-7 text-xl font-bold font-heavitas mt-36 ">
