@@ -36,15 +36,15 @@
   .title {
     @media (max-width: 768px) {
       h3 {
-        font-size: 12px;
+        font-size: 12px !important;
         color: white;
       }
       h1 {
-        font-size: 24px;
+        font-size: 24px !important;
         color: white;
       }
       span {
-        font-size: 24px;
+        font-size: 24px !important;
         color: white;
       }
     }
