@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./banner.module.scss";
 import img1 from "@/assets/imgs/bannerBg1.jpg";
 import img2 from "@/assets/imgs/bannerBg2.jpg";
@@ -63,6 +65,76 @@ const Banner = () => {
       slider.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
+  const videoRef = useRef(null);
+  const textRef1 = useRef(null);
+  const textRef2 = useRef(null);
+  const textRef3 = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const videoElement = videoRef.current;
+
+    if (videoElement) {
+      gsap.to(videoElement, {
+        scrollTrigger: {
+          trigger: videoElement,
+          start: "top bottom",
+          end: "top center",
+          scrub: true,
+          once: true,
+        },
+        scale: 1,
+        duration: 2,
+      });
+    }
+  }, [videoRef]);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const textElement1 = textRef1.current;
+    const textElement2 = textRef2.current;
+    const textElement3 = textRef3.current;
+
+    if (textElement1 && textElement2 && textElement3) {
+      gsap.to(textElement1, {
+        scrollTrigger: {
+          trigger: textElement1,
+          start: "top bottom",
+          end: "bottom center",
+          scrub: true,
+          markers: true,
+          once: true,
+        },
+        color: "white",
+        fontSize: "1rem",
+      });
+
+      gsap.to(textElement2, {
+        scrollTrigger: {
+          trigger: textElement2,
+          start: "top bottom",
+          end: "bottom center",
+          scrub: true,
+          once: true,
+        },
+        color: "white",
+        fontSize: "3rem",
+      });
+
+      gsap.to(textElement3, {
+        scrollTrigger: {
+          trigger: textElement3,
+          start: "top bottom",
+          end: "bottom center",
+          scrub: true,
+          once: true,
+        },
+        color: "white",
+        fontSize: " 2.9317rem",
+      });
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.filter}></div>
@@ -87,29 +159,31 @@ const Banner = () => {
           alt="test"
           className={`${styles.group} absolute opacity-[40%] w-auto h-[20%] -right-40 top-2/4 overflow-y-hidden rounded-xl -z-10`}
         />
-        <Bounce>
-          <div
-            className={`${styles.title} flex flex-col items-center pt-[112px] gap-y-8 `}
-          >
-            <div className=" flex flex-col items-center  text-white">
-              <h3
-                className={`${styles.titleW} font-heavitas text-[12px] text-[#B34B1E] `}
-              >
-                WELCOME TO
-              </h3>
-              <h1
-                className={`${styles.titleH} font-heavitas text-[48px] text-[#B34B1E]`}
-              >
-                HA GIANG LOOP
-              </h1>
-            </div>
-            <span
-              className={`${styles.titleV} font-tomatoes text-[127px] text-[#FFD772]`}
+        <div
+          className={`${styles.title} flex flex-col items-center pt-[112px] gap-y-8 `}
+        >
+          <div className=" flex flex-col items-center  text-white">
+            <h3
+              className={`${styles.titleW} font-heavitas text-[12px] text-[#B34B1E] `}
+              ref={textRef1}
             >
-              VieTnam
-            </span>
+              WELCOME TO
+            </h3>
+            <h1
+              className={`${styles.titleH} font-heavitas text-[48px] text-[#B34B1E]`}
+              ref={textRef2}
+            >
+              HA GIANG LOOP
+            </h1>
           </div>
-        </Bounce>
+          <span
+            className={`${styles.titleV} font-tomatoes text-[127px] text-[#FFD772]`}
+            ref={textRef3}
+          >
+            VieTnam
+          </span>
+        </div>
+
         <div
           className={`${styles.info} z-50 absolute bottom-2 left-5  xl:flex  xl:w-full xl:justify-center xl:gap-x-6 xl:mb-7`}
         >
@@ -146,22 +220,18 @@ const Banner = () => {
             />
           )}
         </div>
-        <Zoom
-          triggerOnce="true"
-          duration={1500}
-          className="absolute top-0 -z-[1] w-full "
+
+        <video
+          preload="none"
+          autoPlay="true"
+          loop
+          playsInline
+          muted
+          className="mx-auto"
+          ref={videoRef}
         >
-          <video
-            preload="none"
-            autoPlay="true"
-            loop
-            playsInline
-            muted
-            className="mx-auto"
-          >
-            <source src="/video.mp4" />
-          </video>
-        </Zoom>
+          <source src="/video.mp4" />
+        </video>
       </div>
       <div
         className={`${styles.bannerBot} grid grid-cols-2 min-h-[100vh] px-36 items-center`}

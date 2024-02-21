@@ -187,7 +187,7 @@ const Cheer = () => {
                   <SwiperSlide key={index} className="">
                     <div className="flex gap-x-6">
                       <div style={{ flex: 1 }}>{item.img}</div>
-                      <div className="md:basis-1/5 hidden">
+                      <div className={`${styles.chill}`}>
                         {cheerItem[(index + 1) % cheerItem.length].img}
                       </div>
                     </div>

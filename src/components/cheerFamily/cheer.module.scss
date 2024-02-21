@@ -122,6 +122,12 @@
         @media (max-width: 768px) {
           width: 100%;
         }
+        .chill {
+          flex: 0.3;
+          @media (max-width: 768px) {
+            display: none;
+          }
+        }
         img {
           height: 450px;
 

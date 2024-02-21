@@ -20,6 +20,7 @@
   .funtion {
     @media (max-width: 768px) {
       max-width: 90%;
+      margin-bottom: 1rem;
     }
   }
   .nav {
@@ -119,6 +120,9 @@
   .menuExtra {
     @media (max-width: 768px) {
       display: flex;
+      position: fixed;
+      bottom: 0;
+      z-index: 2000;
       width: 100%;
       background: white;
       color: #284a0c;

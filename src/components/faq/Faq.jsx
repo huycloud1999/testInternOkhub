@@ -147,8 +147,8 @@ const Faq = () => {
         <div>
           <h1 className="text-[26px] font-heavitas">JOURNEY</h1>
           <span className="text-[14px] text-[#727272]">
-            Find inspiration and discover amazing knowledge for successful site
-            building.
+            Today is a beautiful day and Happiness isn’t a destination, it’s a
+            journey we are on.
           </span>
         </div>
         <div className={styles.mainJ}>
