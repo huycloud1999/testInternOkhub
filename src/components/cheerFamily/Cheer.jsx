@@ -10,6 +10,7 @@ import moto from "@/assets/icons/moto.svg";
 import check from "@/assets/icons/check.svg";
 import teamImg4 from "@/assets/imgs/team4.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Slide } from "react-awesome-reveal";
 import hoverBtn from "@/assets/icons/button.svg";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -71,55 +72,61 @@ const Cheer = () => {
           <span className="md:text-[16px] font-extrabold text-[#b34b1e] text-[12px]">
             cheer
           </span>
-          <h3 className="md:text-[64px] font-extrabold text-[#b34b1e] text-[24px]">
-            FAmily
-          </h3>
+          <Slide direction="up">
+            <h3 className="md:text-[64px] font-extrabold text-[#b34b1e] text-[24px]">
+              FAmily
+            </h3>
+          </Slide>
         </div>
-        <div className={`${styles.menu} uppercase flex gap-x-5`}>
-          <div
-            className={`${
-              activeMenu === "Rider team" ? styles.active : styles.noActive
-            }`}
-            onClick={() => handleMenuClick("Rider team")}
-          >
-            Rider team
+        <Slide direction="right">
+          <div className={`${styles.menu} uppercase flex gap-x-5`}>
+            <div
+              className={`${
+                activeMenu === "Rider team" ? styles.active : styles.noActive
+              }`}
+              onClick={() => handleMenuClick("Rider team")}
+            >
+              Rider team
+            </div>
+            <div
+              className={`${
+                activeMenu === "Special list" ? styles.active : styles.noActive
+              }`}
+              onClick={() => handleMenuClick("Special list")}
+            >
+              Special list
+            </div>
+            <div
+              className={`${
+                activeMenu === "localhost" ? styles.active : styles.noActive
+              }`}
+              onClick={() => handleMenuClick("localhost")}
+            >
+              localhost
+            </div>
+            <div
+              className={`${
+                activeMenu === "tour leader" ? styles.active : styles.noActive
+              }`}
+              onClick={() => handleMenuClick("tour leader")}
+            >
+              tour leader
+            </div>
           </div>
-          <div
-            className={`${
-              activeMenu === "Special list" ? styles.active : styles.noActive
-            }`}
-            onClick={() => handleMenuClick("Special list")}
-          >
-            Special list
-          </div>
-          <div
-            className={`${
-              activeMenu === "localhost" ? styles.active : styles.noActive
-            }`}
-            onClick={() => handleMenuClick("localhost")}
-          >
-            localhost
-          </div>
-          <div
-            className={`${
-              activeMenu === "tour leader" ? styles.active : styles.noActive
-            }`}
-            onClick={() => handleMenuClick("tour leader")}
-          >
-            tour leader
-          </div>
-        </div>
+        </Slide>
       </div>
       <div className={styles.content}>
         {activeMenu === "Rider team" && (
           <div className={styles.item}>
             <div className={styles.info}>
-              <div className="name md:text-[26px] text-[22px] md:pt-0 pt-2 text-[#727272] font-bold ">
-                {cheerItem[currentSlideIndex]?.team}
-              </div>
-              <div className="description md:text-[14px] text-[#727272]">
-                {cheerItem[currentSlideIndex]?.description}
-              </div>
+              <Slide direction="left">
+                <div className="name md:text-[26px] text-[22px] md:pt-0 pt-2 text-[#727272] font-bold ">
+                  {cheerItem[currentSlideIndex]?.team}
+                </div>
+                <div className="description md:text-[14px] text-[#727272]">
+                  {cheerItem[currentSlideIndex]?.description}
+                </div>
+              </Slide>
               <div className="infoDetail w-full flex flex-col gap-y-2 md:text-[14px] text-[12px] pt-3">
                 <span className="groupSize flex gap-x-2 items-center  text-[#727272]">
                   <Image src={human} alt="" className=" w-[16px] h-[16px] " />
